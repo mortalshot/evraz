@@ -1,0 +1,299 @@
+// .firstscreen    ====================================================================================================
+.firstscreen {
+  padding: 0;
+  margin: 0 !important;
+  color: $White;
+
+  // .firstscreen__main
+  &__main {
+    position: relative;
+  }
+
+  // .firstscreen__bg
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  // .firstscreen__container
+  &__container {
+    max-width: toRem(1200);
+    position: relative;
+    z-index: 1;
+    min-height: calc(100svh - var(--header-height) - toRem(84));
+    display: grid;
+    align-items: center;
+    @include adaptiveValue("padding-top", 92, 32);
+    @include adaptiveValue("padding-bottom", 92, 32);
+  }
+
+  // .firstscreen__body
+  &__body {
+    display: grid;
+    align-content: flex-start;
+    max-width: toRem(720);
+    @include adaptiveValue("row-gap", 72, 24);
+  }
+
+  // .firstscreen__heading
+  &__heading {
+    display: grid;
+    align-content: flex-start;
+    justify-items: flex-start;
+    @include adaptiveValue("row-gap", 32, 16, 0, 768, 375);
+  }
+
+  // .firstscreen__title
+  &__title {
+    display: inline-grid;
+    align-content: flex-start;
+    text-transform: uppercase;
+
+    span {
+      display: block;
+      padding: toRem(8) toRem(20);
+      background-color: $Violet;
+    }
+  }
+
+  // .firstscreen__subtitle
+  &__subtitle {
+    display: grid;
+    align-content: flex-start;
+
+    @media (min-width: $mobile) {
+      justify-items: flex-start;
+    }
+
+    span {
+      display: inline-block;
+      padding: toRem(4) toRem(12);
+      background-color: $Orange;
+      font-weight: 400;
+      line-height: math.div(31, 24);
+    }
+  }
+
+  // .firstscreen__actions
+  &__actions {
+    gap: toRem(16) toRem(24);
+    max-width: toRem(584);
+
+    @media (min-width: $mobile) {
+      display: flex;
+      align-items: center;
+    }
+    @media (max-width: $mobile) {
+      display: grid;
+      align-content: flex-start;
+    }
+  }
+
+  // .firstscreen__button
+  &__button {
+    flex: 1;
+
+    .btn {
+      width: 100%;
+    }
+  }
+
+  // .firstscreen__ticker
+  &__ticker {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    min-height: toRem(84);
+    padding-top: toRem(8);
+    padding-bottom: toRem(8);
+    background-color: $Yellow;
+    @include adaptiveValue("font-size", 38, 24);
+  }
+}
+
+// .steps    ====================================================================================================
+.steps {
+  // .steps__container
+  &__container {
+  }
+
+  // .steps__items
+  &__items {
+    display: grid;
+    align-content: flex-start;
+    row-gap: toRem(40);
+  }
+
+  // .steps__item
+  &__item {
+    @media (min-width: $mobile) {
+      &:nth-child(2n-1) {
+        .step-item__image {
+          grid-row: 1/2;
+        }
+      }
+    }
+  }
+}
+
+.step-item {
+  display: grid;
+  row-gap: toRem(24);
+  @include adaptiveValue("column-gap", 40, 20, 0, 1440, 768);
+
+  @media (min-width: $mobile) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // .step-item__body
+  &__body {
+    display: grid;
+    align-content: center;
+    position: relative;
+    @include adaptiveValue("row-gap", 32, 12);
+
+    @media (min-width: $mobile) {
+      padding-top: toRem(20);
+      padding-bottom: toRem(20);
+    }
+  }
+
+  // .step-item__step
+  &__step {
+    font-weight: 700;
+    line-height: 1;
+    color: $LGrey3;
+    position: absolute;
+    z-index: -1;
+    @include adaptiveValue("top", 40, -20);
+    @include adaptiveValue("right", 32, 0);
+    @include adaptiveValue("font-size", 134, 92);
+  }
+
+  // .step-item__title
+  &__title {
+    font-weight: 700;
+
+    span {
+      color: $Orange;
+    }
+  }
+
+  // .step-item__text
+  &__text {
+    line-height: math.div(28, 20);
+    @include adaptiveValue("font-size", 20, 16);
+  }
+
+  // .step-item__image
+  &__image {
+    @media (max-width: $mobile) {
+      grid-row: 1/2;
+    }
+
+    img {
+      aspect-ratio: 860 / 300;
+    }
+  }
+}
+
+// .indicators    ====================================================================================================
+.indicators {
+  // .indicators__container
+  &__container {
+  }
+
+  // .indicators__counters
+  &__counters {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    @include adaptiveValue("column-gap", 40, 20, 0, 992, 768);
+    @include adaptiveValue("row-gap", 80, 40, 0, 992, 768);
+
+    @media (min-width: $mobile) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.indicators-item {
+  display: grid;
+  align-content: flex-start;
+  row-gap: toRem(8);
+  text-align: center;
+
+  // .indicators-item__val
+  &__val {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    line-height: 1;
+    color: $Orange;
+    @include adaptiveValue("font-size", 88, 64, 0, 768, 360);
+  }
+
+  // .indicators-item__caption
+  &__caption {
+    line-height: 140%;
+    @include adaptiveValue("font-size", 20, 16);
+  }
+}
+
+// .platform    ====================================================================================================
+.platform {
+  // .platform__container
+  &__container {
+    display: grid;
+    align-content: flex-start;
+    row-gap: toRem(32);
+    @include adaptiveValue("column-gap", 120, 24, 0, 1920, 768);
+
+    @media (min-width: $mobile) {
+      grid-template-columns: 42% 1fr;
+    }
+    @media (min-width: $tablet) {
+      grid-template-columns: percent(785, 1760) 1fr;
+    }
+  }
+
+  // .platform__image
+  &__image {
+    @media (max-width: $mobile) {
+      max-width: toRem(480);
+    }
+  }
+
+  // .platform__body
+  &__body {
+    display: grid;
+    align-content: flex-start;
+    @include adaptiveValue("row-gap", 32, 24);
+  }
+
+  // .platform__title
+  &__title {
+    span {
+      color: $White;
+      text-transform: uppercase;
+    }
+  }
+
+  // .platform__caption
+  &__caption {
+    line-height: 130%;
+    @include adaptiveValue("font-size", 32, 18);
+  }
+
+  // .platform__text
+  &__text {
+    @include adaptiveValue("font-size", 20, 16);
+
+    &:not(:first-child) {
+      @include adaptiveValue("margin-top", 32, 0, 0, 1920, 992);
+    }
+  }
+}
+//====================================================================================================

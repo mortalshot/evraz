@@ -1,0 +1,137 @@
+// .footer    ====================================================================================================
+.footer {
+  background-color: $LGrey2;
+  @include adaptiveValue("padding-top", 60, 32);
+  @include adaptiveValue("padding-bottom", 60, 32);
+
+  // .footer__container
+  &__container {
+    @media (min-width: $mobile) {
+      display: flex;
+      align-items: flex-start;
+      gap: toRem(16);
+    }
+    @media (max-width: $mobile) {
+      display: grid;
+      align-content: flex-start;
+      row-gap: toRem(28);
+    }
+  }
+
+  .footer__left,
+  .footer__right {
+    display: grid;
+    align-content: flex-start;
+
+    @media (min-width: $mobile) {
+      flex: 0 1 60%;
+    }
+    @media (min-width: $tablet) {
+      flex: 0 1 50%;
+    }
+  }
+
+  // .footer__left
+  &__left {
+    row-gap: toRem(16);
+
+    @media (min-width: $mobile) {
+      row-gap: toRem(40);
+    }
+  }
+
+  // .footer__logo
+  &__logo {
+  }
+
+  // .footer__copyright
+  &__copyright {
+    font-size: toRem(16);
+    color: $LGrey;
+  }
+
+  // .footer__center
+  &__center {
+    @media (min-width: $mobile) {
+      flex: 1 0 40%;
+    }
+    @media (min-width: $tablet) {
+      flex: 1 0 50%;
+    }
+  }
+
+  // .footer__menu
+  &__menu {
+    font-weight: 300;
+
+    nav {
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(2, 1fr);
+      gap: toRem(16);
+    }
+
+    ul {
+      display: grid;
+      align-content: flex-start;
+      color: $Grey;
+      @include adaptiveValue("row-gap", 16, 8, 0, 768, 375);
+    }
+  }
+
+  // .footer__right
+  &__right {
+    row-gap: toRem(16);
+
+    @media (min-width: $mobile) {
+      row-gap: toRem(32);
+    }
+  }
+
+  // .footer__contacts
+  &__contacts {
+    display: grid;
+    align-content: flex-start;
+    row-gap: toRem(8);
+
+    .contacts {
+      // .contacts__item
+      &__item {
+        // .contacts__item_phone
+        &_phone {
+          white-space: nowrap;
+
+          a {
+            font-weight: 700;
+            line-height: 130%;
+            @include adaptiveValue("font-size", 24, 18);
+          }
+        }
+      }
+
+      // .contacts__link
+      &__link {
+        font-weight: 300;
+        color: $Grey;
+      }
+    }
+  }
+
+  // .footer__socials
+  &__socials {
+    .socials__link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: toRem(48);
+      height: toRem(48);
+      background-color: $mainColor;
+
+      svg {
+        width: toRem(28);
+        aspect-ratio: 1 / 1;
+      }
+    }
+  }
+}
+//====================================================================================================

@@ -1,0 +1,305 @@
+// .header    ====================================================================================================
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: $White;
+  box-shadow: 0 16px 16px 0 rgba(50, 50, 71, 0.08);
+
+  // .header__container
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: toRem(16);
+    @include adaptiveValue("min-height", 100, 86, 0, 992, 375);
+    @include adaptiveValue("padding-top", 20, 16, 0, 1920, 992);
+    @include adaptiveValue("padding-bottom", 20, 16, 0, 1920, 992);
+
+    @media (max-width: $tablet) {
+      justify-content: space-between;
+    }
+  }
+
+  // .header__logo
+  &__logo {
+    position: relative;
+    z-index: 11;
+
+    @media (min-width: $tablet) {
+      @include adaptiveValue("max-width", 120, 100, 0, 1920, 1440);
+    }
+    @media (max-width: $tablet) {
+      @include adaptiveValue("max-width", 100, 80, 0, 992, 375);
+    }
+  }
+
+  // .header__menu
+  &__menu {
+    @media (min-width: $tablet) {
+      flex: 1;
+    }
+
+    .menu {
+      // .menu__body
+      &__body {
+        @media (min-width: $tablet) {
+          display: grid;
+          align-content: flex-start;
+          @include adaptiveValue("row-gap", 16, 12, 0, 1920, 992);
+        }
+        @media (max-width: $tablet) {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          min-height: 100vh;
+          background-color: $White;
+          overflow-y: auto;
+          overflow-x: hidden;
+          display: flex;
+          flex-direction: column;
+          row-gap: toRem(12);
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          z-index: 5;
+          transition: 0.5s ease all 0s;
+          padding: toRem(80) toRem(20) toRem(40);
+          @include adaptiveValue("padding-top", 120, 106, 0, 992, 375);
+
+          &::before {
+            content: "";
+            position: fixed;
+            left: -100%;
+            right: 0;
+            top: 0;
+            background-color: $White;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            z-index: 7;
+            transition: 0.5s ease all 0s;
+            @include adaptiveValue("height", 100, 86, 0, 992, 375);
+          }
+
+          .menu-open & {
+            opacity: 1 !important;
+            visibility: visible;
+            pointer-events: all;
+
+            &::before {
+              opacity: 1 !important;
+              visibility: visible;
+              left: 0;
+            }
+          }
+        }
+
+        ul {
+          @media (min-width: $tablet) {
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: toRem(-4);
+            margin-bottom: toRem(-4);
+            @include adaptiveValue("margin-left", -12, -8, 0, 1920, 1440);
+            @include adaptiveValue("margin-right", -12, -8, 0, 1920, 1440);
+          }
+        }
+
+        li {
+          @media (min-width: $tablet) {
+            display: flex;
+            align-items: center;
+            gap: toRem(4);
+            padding-top: toRem(4);
+            padding-bottom: toRem(4);
+            @include adaptiveValue("padding-left", 12, 8, 0, 1920, 1440);
+            @include adaptiveValue("padding-right", 12, 8, 0, 1920, 1440);
+          }
+        }
+
+        a {
+          @media (max-width: $tablet) {
+            padding-top: toRem(4);
+            padding-bottom: toRem(4);
+          }
+        }
+
+        .menu-item-has-children {
+          position: relative;
+
+          @media (any-hover: hover) {
+            &:hover {
+              & > ul {
+                opacity: 1 !important;
+                visibility: visible !important;
+                pointer-events: all !important;
+              }
+
+              .icon {
+                transform: rotate(180deg);
+              }
+            }
+          }
+
+          &._hover {
+            & > ul {
+              opacity: 1 !important;
+              visibility: visible !important;
+              pointer-events: all !important;
+            }
+
+            .icon {
+              transform: rotate(180deg);
+            }
+          }
+
+          & > ul {
+            display: grid;
+            align-content: flex-start;
+
+            @media (min-width: $tablet) {
+              background-color: $White;
+              position: absolute;
+              z-index: 7;
+              bottom: 0;
+              transform: translateY(97%);
+              padding: toRem(12) 0;
+              opacity: 0;
+              visibility: hidden;
+              pointer-events: none;
+              border-radius: toRem(14);
+              overflow: hidden;
+              box-shadow: 0 16px 16px 0 rgba(50, 50, 71, 0.08);
+              transition: $transition ease all 0s;
+
+              li {
+                padding: 0;
+              }
+
+              a {
+                flex: 1;
+                padding: toRem(4) toRem(16);
+              }
+            }
+
+            &[hidden] {
+              display: none;
+            }
+
+            a {
+              font-weight: 300;
+              text-decoration: none;
+              @include adaptiveValue("font-size", 18, 16);
+
+              @media (any-hover: hover) {
+                transition: $transition ease all 0s;
+
+                &:hover {
+                  background-color: $Orange;
+                  color: $White;
+                }
+              }
+            }
+          }
+
+          .menu__arrow {
+            @media (max-width: $tablet) {
+              position: relative;
+              top: toRem(4);
+            }
+          }
+        }
+
+        .icon {
+          width: toRem(20);
+          height: toRem(20);
+          flex: 0 0 toRem(20);
+          transition: $transition ease transform 0s;
+        }
+
+        & > ul {
+          @media (max-width: $tablet) {
+            display: grid;
+            row-gap: toRem(12);
+          }
+        }
+      }
+
+      // .menu__top
+      &__top {
+        @media (min-width: $tablet) {
+          font-weight: 300;
+          @include adaptiveValue("font-size", 18, 13.5, 0, 1920, 992);
+        }
+      }
+
+      // .menu__bottom
+      &__bottom {
+        @media (min-width: $tablet) {
+          font-weight: 500;
+          @include adaptiveValue("font-size", 22, 16, 0, 1920, 992);
+        }
+      }
+    }
+  }
+}
+
+.logo {
+  // .logo__link
+  &__link {
+  }
+}
+
+.icon-menu {
+  display: none;
+
+  @media (max-width: $tablet) {
+    display: block;
+    position: relative;
+    width: toRem(30);
+    height: toRem(18);
+    cursor: pointer;
+    z-index: 11;
+    span,
+    &::before,
+    &::after {
+      content: "";
+      transition: all 0.3s ease 0s;
+      right: 0;
+      position: absolute;
+      width: 100%;
+      height: toRem(2);
+      border-radius: toRem(4);
+      background-color: #000;
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+    span {
+      top: calc(50% - toRem(1));
+    }
+    .menu-open & {
+      span {
+        width: 0;
+      }
+      &::before,
+      &::after {
+      }
+      &::before {
+        top: calc(50% - toRem(1));
+        transform: rotate(-45deg);
+      }
+      &::after {
+        bottom: calc(50% - toRem(1));
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

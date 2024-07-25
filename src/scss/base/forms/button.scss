@@ -1,0 +1,69 @@
+//<BUTTONS (a.btn+tab)>
+// Сниппет (HTML): btn
+
+.btn {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	gap: toRem(6);
+	text-align: center;
+	border-radius: toRem(0) !important;
+	padding: toRem(16) toRem(24);
+	border: toRem(1) solid transparent;
+	position: relative;
+	overflow: hidden;
+	font-weight: 400;
+	line-height: math.div(28, 20);
+	@include adaptiveValue("padding-top", 16, 12, 0, 768, 375);
+	@include adaptiveValue("padding-bottom", 16, 12, 0, 768, 375);
+	@include adaptiveValue("font-size", 20, 18, 0, 768, 375);
+	@include adaptiveValue("min-height", 64, 52, 0, 768, 375);
+
+	@media (max-width: $mobileSmall) {
+		width: 100%;
+	}
+
+	// .btn_bg-orange
+	&_bg-orange {
+		color: $White;
+		background-color: $Orange;
+
+		@media (any-hover: hover) {
+			transition: $transition ease background-color 0s;
+			&:hover {
+				background-color: #d27232;
+			}
+		}
+	}
+
+	// .btn_bg-blure
+	&_bg-blure {
+		overflow: hidden;
+		position: relative;
+		color: $White;
+		border-color: $White;
+
+		@media (any-hover: hover) {
+			&:hover {
+				&::before {
+					// background-color: rgba(255, 254, 254, 0.5);
+					backdrop-filter: blur(toRem(4));
+				}
+			}
+		}
+
+		&::before {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background-color: rgba(255, 254, 254, 0.16);
+			backdrop-filter: blur(toRem(16));
+			z-index: -1;
+			transition: $transition ease backdrop-filter 0s;
+		}
+	}
+}
