@@ -553,7 +553,7 @@ video {
   aspect-ratio: 1/1
 }
 .firstscreen {
-  padding: 0;
+  padding: 0!important;
   margin: 0!important;
   color: #fff
 }
