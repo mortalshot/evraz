@@ -166,7 +166,7 @@
               position: absolute;
               z-index: 7;
               bottom: 0;
-              transform: translateY(97%);
+              transform: translateY(96%);
               padding: toRem(12) 0;
               opacity: 0;
               visibility: hidden;
@@ -233,7 +233,7 @@
       &__top {
         @media (min-width: $tablet) {
           font-weight: 300;
-          @include adaptiveValue("font-size", 18, 13.5, 0, 1920, 992);
+          @include adaptiveValue("font-size", 16, 13.5, 0, 1920, 992);
         }
       }
 
@@ -241,7 +241,7 @@
       &__bottom {
         @media (min-width: $tablet) {
           font-weight: 500;
-          @include adaptiveValue("font-size", 22, 16, 0, 1920, 992);
+          @include adaptiveValue("font-size", 18, 16, 0, 1920, 992);
         }
       }
     }

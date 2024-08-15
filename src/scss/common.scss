@@ -8,7 +8,7 @@ h,
   }
 
   &2 {
-    font-weight: 400;
+    font-weight: 700;
     line-height: math.div(48, 46);
     @include adaptiveValue("font-size", 46, 20);
   }
@@ -17,6 +17,12 @@ h,
     font-weight: 400;
     line-height: math.div(48, 46);
     @include adaptiveValue("font-size", 24, 18);
+  }
+
+  &4 {
+    font-weight: 500;
+    line-height: 130%;
+    @include adaptiveValue("font-size", 20, 16);
   }
 }
 
@@ -28,18 +34,24 @@ video {
 }
 
 section {
-  @include adaptiveValue("margin-top", 140, 40);
-  @include adaptiveValue("margin-bottom", 140, 40);
-
-  &:first-child {
-    @include adaptiveValue("margin-top", 30, 20);
-  }
+  @include adaptiveValue("margin-top", 140, 80);
+  @include adaptiveValue("margin-bottom", 140, 80);
 }
 
 ._section-bg {
   margin: 0;
   @include adaptiveValue("padding-top", 120, 40);
   @include adaptiveValue("padding-bottom", 120, 40);
+}
+
+._heading {
+  &:not(:last-child) {
+    @include adaptiveValue("margin-bottom", 60, 32);
+  }
+}
+
+.text-link {
+  color: $Orange;
 }
 
 .icon {
@@ -189,6 +201,61 @@ section {
     @include adaptiveValue("padding-left", 24, 16);
   }
 
+  .wp-block-media-text {
+    display: grid;
+    row-gap: toRem(24);
+    @include adaptiveValue("column-gap", 92, 20, 0, 1440, 768);
+    @include adaptiveValue("margin-top", 64, 32);
+    @include adaptiveValue("margin-bottom", 64, 32);
+
+    @media (min-width: $mobileM) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &.is-vertically-aligned-center {
+      align-items: center;
+    }
+
+    &.is-vertically-aligned-bottom {
+      align-items: flex-end;
+    }
+
+    // .wp-block-media-text__media
+    &__media {
+      @media (max-width:$mobileM){
+        grid-row: 1/2;    
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        aspect-ratio: 655 / 322;
+      }
+    }
+
+    // .wp-block-media-text__content
+    &__content {
+      & > * {
+        @include adaptiveValue("margin-top", 32, 16);
+        @include adaptiveValue("margin-bottom", 32, 16);
+      }
+
+      :first-child {
+        margin-top: 0;
+      }
+      :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  br {
+    @media (max-width:$mobileSmall){
+       display: none; 
+    }
+  }
+
   :first-child {
     margin-top: 0;
   }
@@ -305,9 +372,21 @@ section {
 .contacts {
   // .contacts__item
   &__item {
+    display: grid;
+    align-content: flex-start;
+    justify-content: flex-start;
+    row-gap: toRem(12);
+
     // .contacts__item_phone
     &_phone {
     }
+  }
+
+  // .contacts__label
+  &__label {
+    font-weight: 300;
+    line-height: 130%;
+    color: $LGrey;
   }
 
   // .contacts__link
@@ -326,6 +405,10 @@ section {
 
   // .socials__link
   &__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
     @media (any-hover: hover) {
       &:hover {
         svg {
@@ -369,6 +452,7 @@ section {
   display: grid;
   align-content: flex-start;
   justify-items: flex-start;
+  overflow: hidden;
 
   span {
     font-weight: 500;
@@ -379,4 +463,78 @@ section {
     @include adaptiveValue("padding-left", 20, 12);
     @include adaptiveValue("padding-right", 20, 12);
   }
+}
+
+// swiper
+.swiper-arrows {
+  display: flex;
+  align-items: center;
+  gap: toRem(12);
+
+  // .swiper-arrows__arrow
+  &__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: toRem(1) solid $Line;
+    flex: 0 0 toRem(64);
+    width: toRem(64);
+    height: toRem(64);
+
+    &:not(.swiper-button-disabled) {
+      cursor: pointer;
+    }
+
+    @media (any-hover: hover) {
+      transition: $transition ease border-color 0s;
+
+      &:hover {
+        &:not(.swiper-button-disabled) {
+          border-color: $Orange;
+
+          svg {
+          }
+        }
+      }
+    }
+
+    svg {
+      fill: $Orange;
+      width: toRem(40);
+      height: toRem(40);
+      flex: 0 0 toRem(40);
+    }
+
+    // .swiper-arrows__arrow_prev
+    &_prev {
+      svg {
+        transform: rotate(-180deg);
+      }
+    }
+
+    // .swiper-arrows__arrow_next
+    &_next {
+    }
+  }
+}
+
+.swiper-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: toRem(12);
+  margin-top: toRem(24);
+}
+.swiper-pagination-bullet {
+  display: block;
+  width: toRem(16);
+  height: toRem(16);
+  flex: 0 0 toRem(16);
+  background-color: $Line;
+  cursor: pointer;
+  transition: $transition ease background-color 0s;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: $Orange;
 }

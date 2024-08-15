@@ -121,7 +121,6 @@ export function headerScroll() {
 }
 // Анимация цифрового счетчика.
 export function digitsCounter() {
-
 	// Функция инициализации
 	function digitsCountersInit(digitsCountersItems) {
 		let digitsCounters = digitsCountersItems ? digitsCountersItems : document.querySelectorAll("[data-digits-counter]");

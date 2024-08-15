@@ -1,5 +1,16 @@
-<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol viewBox="0 0 14 14" id="select" xmlns="http://www.w3.org/2000/svg">
+<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol viewBox="0 0 24 24" id="link-arrow" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#aclip0_2003_230)">
+<path d="M9 5V7H15.59L4 18.59L5.41 20L17 8.41V15H19V5H9Z"/>
+</g>
+<defs>
+<clipPath id="aclip0_2003_230">
+<rect width="24" height="24"/>
+</clipPath>
+</defs>
+</symbol><symbol viewBox="0 0 14 14" id="select" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M3.74042 5.56003C3.89136 5.37135 4.16667 5.34076 4.35535 5.4917L6.99871 7.60639L9.64208 5.4917C9.83075 5.34076 10.1061 5.37135 10.257 5.56003C10.408 5.7487 10.3774 6.02402 10.1887 6.17496L7.27202 8.50829C7.11224 8.63612 6.88519 8.63612 6.72541 8.50829L3.80874 6.17496C3.62007 6.02402 3.58948 5.7487 3.74042 5.56003Z"/>
+</symbol><symbol viewBox="0 0 24 24" id="swiper-arrow" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16.4143 12L10.0503 18.364L8.63613 16.9497L13.5859 12L8.63613 7.05025L10.0503 5.63604L16.4143 12Z"/>
 </symbol><symbol viewBox="0 0 28 28" id="telegram" xmlns="http://www.w3.org/2000/svg">
 <path d="M25.8 4.72267L22.1935 23.5507C22.1935 23.5507 21.6889 24.8561 20.3027 24.2301L11.9815 17.6231L11.9429 17.6036C13.0669 16.5585 21.7829 8.4432 22.1638 8.07534C22.7535 7.50564 22.3874 7.16647 21.7027 7.59683L8.82815 16.0636L3.86117 14.3329C3.86117 14.3329 3.07951 14.045 3.00431 13.4189C2.92812 12.7918 3.88689 12.4527 3.88689 12.4527L24.1358 4.22674C24.1358 4.22674 25.8 3.46952 25.8 4.72267V4.72267Z"/>
 </symbol><symbol viewBox="0 0 28 28" id="youtube" xmlns="http://www.w3.org/2000/svg">

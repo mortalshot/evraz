@@ -12,9 +12,12 @@ textarea {
 	border-radius: 0 !important;
 	width: 100%;
 	display: block;
-	padding: 0px 20px;
-	border: 1px solid #eee;
+	padding: toRem(20) toRem(30);
+	border: 1px solid $Line;
 	caret-color: inherit;
+	outline: 0;
+	color: $mainColor;
+
 	&._form-focus {
 	}
 	&._form-error {
@@ -31,5 +34,4 @@ textarea {
 
 textarea.input {
 	resize: none;
-	padding: 0px 0px;
 }

@@ -6,12 +6,12 @@
 
   // .footer__container
   &__container {
-    @media (min-width: $mobile) {
+    @media (min-width: $tablet) {
       display: flex;
       align-items: flex-start;
       gap: toRem(16);
     }
-    @media (max-width: $mobile) {
+    @media (max-width: $tablet) {
       display: grid;
       align-content: flex-start;
       row-gap: toRem(28);
@@ -23,10 +23,10 @@
     display: grid;
     align-content: flex-start;
 
-    @media (min-width: $mobile) {
-      flex: 0 1 60%;
-    }
     @media (min-width: $tablet) {
+      flex: 0 1 55%;
+    }
+    @media (min-width: toEm(1280)) {
       flex: 0 1 50%;
     }
   }
@@ -44,18 +44,30 @@
   &__logo {
   }
 
+  // .footer__policy
+  &__policy {
+    display: grid;
+    align-content: flex-start;
+    row-gap: toRem(12);
+  }
+
   // .footer__copyright
   &__copyright {
     font-size: toRem(16);
     color: $LGrey;
   }
 
+  // .footer__policy-link
+  &__policy-link {
+    color: $LGrey;
+  }
+
   // .footer__center
   &__center {
-    @media (min-width: $mobile) {
-      flex: 1 0 40%;
-    }
     @media (min-width: $tablet) {
+      flex: 1 0 45%;
+    }
+    @media (min-width: toEm(1280)) {
       flex: 1 0 50%;
     }
   }
@@ -120,9 +132,6 @@
   // .footer__socials
   &__socials {
     .socials__link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       width: toRem(48);
       height: toRem(48);
       background-color: $mainColor;
