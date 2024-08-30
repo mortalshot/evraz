@@ -13,5 +13,6 @@ import "../../scss/libs/tippy.scss";
 
 // Запускаем и добавляем в объект модулей
 flsModules.tippy = tippy('[data-tippy-content]', {
-
+  allowHTML: true,
+  hideOnClick: false,
 });

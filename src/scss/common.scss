@@ -38,6 +38,10 @@ section {
   @include adaptiveValue("margin-bottom", 140, 80);
 }
 
+.d-none {
+  // display: none;
+}
+
 ._section-bg {
   margin: 0;
   @include adaptiveValue("padding-top", 120, 40);

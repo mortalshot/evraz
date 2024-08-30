@@ -2,21 +2,47 @@
 	// .tabs__navigation
 	&__navigation {
 		display: flex;
-	}
-	// .tabs__title
-	&__title {
-		border: 1px solid #eee;
-		padding: toRem(10) toRem(15);
-		border-radius: toRem(5);
-		&._tab-active {
-			border: 1px solid #000;
+		gap: toRem(1);
+		overflow-x: auto;
+		overflow-y: hidden;
+		scrollbar-width: thin;
+		scrollbar-color: transparent transparent;
+		@include adaptiveValue("margin-bottom", 64, 40);
+
+		&::-webkit-scrollbar {
+			width: 0;
+			height: 0;
 		}
 	}
+
+	// .tabs__title
+	&__title {
+		padding-top: toRem(18);
+		padding-bottom: toRem(18);
+		background-color: $Orange2;
+		transition: $transition ease background-color 0s;
+		color: $White;
+		@include adaptiveValue("padding-left", 44, 16);
+		@include adaptiveValue("padding-right", 44, 16);
+		@include adaptiveValue("font-size", 20, 18);
+
+		&:not(._tab-active) {
+			@media (any-hover: hover) {
+				&:hover {
+					background-color: $Orange;
+				}
+			}
+		}
+
+		&._tab-active {
+			background-color: $Violet;
+		}
+	}
+
 	// .tabs__content
 	&__content {
-		border: 1px solid #eee;
-		padding: toRem(10) toRem(15);
 	}
+
 	// .tabs__body
 	&__body {
 	}
