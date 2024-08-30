@@ -200,6 +200,30 @@ function gsapAnimations() {
       });
     }
   }
+
+  const textSection = document.querySelectorAll('.text-section__text');
+  if (textSection.length > 0) {
+    textSection.forEach(section => {
+      const items = section.querySelectorAll('._content *');
+
+      items.forEach(element => {
+        const elementTL = gsap.timeline({
+          scrollTrigger: {
+            trigger: element,
+            start: 'top 95%',
+            end: 'end 70%',
+            scrub: true,
+            // markers: true,
+          },
+        })
+
+        elementTL.from(element, {
+          yPercent: -20,
+          opacity: 0,
+        })
+      });
+    });
+  }
 }
 
 window.addEventListener('DOMContentLoaded', function () {

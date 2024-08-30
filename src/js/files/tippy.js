@@ -15,4 +15,5 @@ import "../../scss/libs/tippy.scss";
 flsModules.tippy = tippy('[data-tippy-content]', {
   allowHTML: true,
   hideOnClick: false,
+  placement: "auto-start"
 });

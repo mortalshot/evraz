@@ -2416,7 +2416,8 @@
     const tippy_esm = tippy;
     modules_flsModules.tippy = tippy_esm("[data-tippy-content]", {
         allowHTML: true,
-        hideOnClick: false
+        hideOnClick: false,
+        placement: "auto-start"
     });
     function ssr_window_esm_isObject(obj) {
         return obj !== null && typeof obj === "object" && "constructor" in obj && obj.constructor === Object;
@@ -11730,6 +11731,24 @@
                 }, "-0.1");
             }));
         }
+        const textSection = document.querySelectorAll(".text-section__text");
+        if (textSection.length > 0) textSection.forEach((section => {
+            const items = section.querySelectorAll("._content *");
+            items.forEach((element => {
+                const elementTL = gsapWithCSS.timeline({
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 95%",
+                        end: "end 70%",
+                        scrub: true
+                    }
+                });
+                elementTL.from(element, {
+                    yPercent: -20,
+                    opacity: 0
+                });
+            }));
+        }));
     }
     window.addEventListener("DOMContentLoaded", (function() {
         const ticker = document.querySelector(".ticker");

@@ -45,7 +45,7 @@ $minWidth: 375;
 // Ширина полотна (макета)
 $maxWidth: 1920;
 // Ширина ограничивающего контейнера (0 = нет ограничения)
-$maxWidthContainer: 1760;
+$maxWidthContainer: 1800;
 // Общий отступ у контейнера
 // (30 = по 15px слева и справа, 0 = нет отступа)
 $containerPadding: 40;
@@ -126,7 +126,8 @@ body {
 		}
 		@if ($containerPadding>0) {
 			@if ($maxWidthContainer>0) {
-				padding: 0 toRem(math.div($containerPadding, 2));
+				@include adaptiveValue("padding-left", 40, math.div($containerPadding, 2), 0, 1440, 992);
+				@include adaptiveValue("padding-right", 40, math.div($containerPadding, 2), 0, 1440, 992);
 			} @else {
 				@include adaptiveValue("padding-left", math.div($containerPadding, 2), 15);
 				@include adaptiveValue("padding-right", math.div($containerPadding, 2), 15);

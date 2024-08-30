@@ -370,7 +370,7 @@
     svg {
       max-width: 100%;
       height: auto;
-      transform: scale(1.15);
+      // transform: scale(1.15);
     }
   }
 }
@@ -825,6 +825,108 @@
 
     a {
       color: $Violet;
+    }
+  }
+
+  // .text-section_menu
+  &_menu {
+  }
+
+  // .text-section__row
+  &__row {
+  }
+
+  // .text-section__sidebar
+  &__sidebar {
+    flex: 0 0 percent(334, 1800);
+
+
+    @media (max-width: $tablet) {
+      &:not(:first-child) {
+        margin-top: toRem(40);
+      }
+    }
+
+    nav {
+      position: sticky;
+      top: calc(var(--header-height) + toRem(20));
+      border-top: toRem(1) solid $Orange2;
+      border-bottom: toRem(1) solid $Orange2;
+      @include adaptiveValue("padding-top", 30, 24, 0, 1440, 992);
+      @include adaptiveValue("padding-bottom", 30, 24, 0, 1440, 992);
+      @include adaptiveValue("padding-left", 35, 0, 0, 1440, 992);
+      @include adaptiveValue("padding-right", 35, 0, 0, 1440, 992);
+    }
+
+    ul {
+      display: grid;
+      align-content: flex-start;
+      @include adaptiveValue("row-gap", 30, 16, 0, 1440, 992);
+
+      a {
+        font-weight: 500;
+        color: $LGrey;
+        text-decoration: underline from-font;
+        text-underline-offset: 3px;
+        transition: $transition ease text-decoration 0s;
+
+        @media (any-hover: hover) {
+          &:hover {
+            text-decoration: underline transparent from-font;
+          }
+        }
+      }
+    }
+  }
+
+  // .text-section_menu
+  &_menu {
+    .text-section__container {
+      display: flex;
+      max-width: toRem($containerWidth);
+
+      @media (min-width: $tablet) {
+        @include adaptiveValue("column-gap", 40, 20, 0, 1440, 992);
+      }
+      @media (max-width: $tablet) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  .wp-block-media-text {
+    align-items: flex-start;
+  }
+
+  .wp-block-media-text__media {
+    position: relative;
+    display: inline-flex;
+
+    &:nth-child(1) {
+      &::before {
+        left: 0;
+      }
+    }
+    &:nth-child(2) {
+      &::before {
+        right: 0;
+      }
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: toRem(7);
+      height: 100%;
+      position: absolute;
+      top: 0;
+      background: url(../img/image-lines.svg) no-repeat center/cover;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover
     }
   }
 }
